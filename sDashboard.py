@@ -10,7 +10,7 @@ import smtplib
           
 
 
-class sContainer(tk.Tk):
+class Container(tk.Tk):
     def __init__(self, *args, **kwargs):        
         tk.Tk.__init__(self, *args, **kwargs)
 
@@ -692,7 +692,7 @@ class Email(tk.Frame):
         
 
 if __name__ =="__main__":
-    staffDashboard = sContainer()
+    staffDashboard = Container()
     staffDashboard.state('zoomed')
     staffDashboard.configure(background='HotPink')
     s = ttk.Style()
