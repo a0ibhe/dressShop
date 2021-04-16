@@ -278,20 +278,20 @@ class Rentals(tk.Frame):
             self.row+=1
 
           #creates treeview for rentals
-        self.tree2 = ttk.Treeview(self, columns = (RENTALSFields))
+        self.tree = ttk.Treeview(self, columns = (RENTALSFields))
           #sets vertical scrollbar
-        vsb2 = ttk.Scrollbar(self, orient ="vertical", command =self.tree.yview)
-        vsb2.grid(row = self.row, column = 11, sticky = 'nsew')
-        self.tree2.configure(yscrollcommand=vsb.set)
-        self.tree2.grid(row=self.row, column=1, columnspan=10, sticky ='nsew')
+        vsb = ttk.Scrollbar(self, orient ="vertical", command =self.tree.yview)
+        vsb.grid(row = self.row, column = 11, sticky = 'nsew')
+        self.tree.configure(yscrollcommand=vsb.set)
+        self.tree.grid(row=self.row, column=1, columnspan=10, sticky ='nsew')
 
           #creates headings
         for field in range(0, len(RENTALSFields)):
-            self.tree2.heading(f'#{field}', text=RENTALSFields[field])
-            self.tree2.column(f'#{field}', stretch=tk.FALSE, minwidth=75, width=100)
+            self.tree.heading(f'#{field}', text=RENTALSFields[field])
+            self.tree.column(f'#{field}', stretch=tk.FALSE, minwidth=75, width=100)
         self.populateTree(self.myDB.getAll("RENTALS"))
         self.row+=1
-        self.tree2.bind('<ButtonRelease-1>', self.populateWidgets)
+        self.tree.bind('<ButtonRelease-1>', self.populateWidgets)
 
           #creates buttons
         self.buttons = ["Search", "Add", "Update", "Delete", "Back"]
