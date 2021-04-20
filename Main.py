@@ -82,11 +82,6 @@ class customerLogin(tk.Frame):
       loginButton = tk.Button(self, text = "Login", command=lambda: controller.show_frame(cd.Container)).grid(row = 3, column = 1,padx = 5, pady =5 )
       backButton = tk.Button(self, text = "Back", command=lambda: controller.show_frame(Menu)).grid(row = 5, column = 2, sticky = "s")
 
-class openStaffDashboard(tk.Frame):
-   def __init__(self, parent, controller, staffDashboard):
-      tk.Frame.__init__(self, parent)
-      staffDashboard.mainloop()
-
 #Login page for staff / the owner
 class staffLogin(tk.Frame):
    def __init__(self, parent, controller):
