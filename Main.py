@@ -3,8 +3,8 @@ from tkinter import ttk
 import sqlite3
 from sqlite3 import Error
 import DatabaseClass as db
-from sDashboard import staffDashboard
-from cDashboard import customerDashboard
+import sDashboard as sd
+import cDash as cd
 
    
 class Container(tk.Tk):
@@ -15,7 +15,7 @@ class Container(tk.Tk):
       container.pack(side="top", fill="both", expand = True)
       container.grid_rowconfigure(0, weight=1)
       container.grid_columnconfigure(0, weight=1)
-      
+
       self.frames = {}
 
       for F in (Menu, customerLogin, staffLogin):
@@ -23,7 +23,7 @@ class Container(tk.Tk):
          self.frames[F] = frame
          frame.grid(row=0, column=0, sticky="nsew")
          self.show_frame(Menu)
-         
+
    def show_frame(self, cont):
       frame = self.frames[cont]
       frame.tkraise()
@@ -79,7 +79,7 @@ class customerLogin(tk.Frame):
       self.customerPasswordVar = tk.StringVar()
       self.entryCustomerPassword = tk.Entry(self, textvariable = self.customerPassword).grid(row = 2, column = 1, padx = 5, pady =5)
 
-      loginButton = tk.Button(self, text = "Login", command=lambda: controller.show_frame(openCustomerDashboard)).grid(row = 3, column = 1,padx = 5, pady =5 )
+      loginButton = tk.Button(self, text = "Login", command=lambda: controller.show_frame(cd.Container)).grid(row = 3, column = 1,padx = 5, pady =5 )
       backButton = tk.Button(self, text = "Back", command=lambda: controller.show_frame(Menu)).grid(row = 5, column = 2, sticky = "s")
 
 class openStaffDashboard(tk.Frame):
@@ -108,7 +108,7 @@ class staffLogin(tk.Frame):
       self.staffPasswordVar = tk.StringVar()
       self.entryStaffPassword = tk.Entry(self, textvariable = self.staffPassword).grid(row = 2, column = 1, padx = 5, pady =5)
 
-      loginButton = tk.Button(self, text = "Login", command=lambda: controller.show_frame(openStaffDashboard)).grid(row = 3, column = 1, padx = 5, pady =5)
+      loginButton = tk.Button(self, text = "Login", command=lambda: controller.show_frame(sd.Dash)).grid(row = 3, column = 1, padx = 5, pady =5)
       backButton = tk.Button(self, text = "Back", command=lambda: controller.show_frame(Menu)).grid(row = 4, column = 1, sticky = "s")
 
  
@@ -117,4 +117,5 @@ class staffLogin(tk.Frame):
 if __name__ =="__main__":
    window = Container()
    window.mainloop()
+
 
