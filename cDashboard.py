@@ -156,7 +156,7 @@ class Dresses(tk.Frame):
 
         self.days = tk.StringVar
         entryDays = tk.Spinbox(self, from_=0, to=3, textvariable=self.days).grid(row=4, column=6, pady=10, padx=10, sticky="nw")
-        self.days.get(self)
+        self.days.get()
 
         self.dressButton = ttk.Button(self, text='Pink Dress', image= self.image, command= lambda:  self.rentDress(self.dressPrice, 5))
         self.dressButton.grid(row=1, column=6, padx=10, pady=10, sticky="nsew")
